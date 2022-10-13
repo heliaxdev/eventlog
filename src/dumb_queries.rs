@@ -64,11 +64,11 @@ impl<'q> QueryMatcher<'q> {
 
 #[cfg(test)]
 mod tests {
+    use namada_apps::node::ledger::events::EventLevel;
     use proptest::prelude::*;
     use proptest::string::{string_regex, RegexGeneratorStrategy};
 
     use super::*;
-    use crate::node::ledger::events::EventLevel;
 
     /// Returns a proptest strategy that yields Tendermint-like queries.
     fn tm_query_strat() -> RegexGeneratorStrategy<String> {

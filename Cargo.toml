@@ -22,6 +22,10 @@ features = ["secp256k1-sign-verify"]
 git = "https://github.com/anoma/namada"
 rev = "9fbdca59549bac6e71b43002b97d652a89635ea8"
 
+[dev-dependencies]
+# A fork with state machime testing
+proptest = {git = "https://github.com/heliaxdev/proptest", branch = "tomas/sm"}
+
 [patch.crates-io]
 # TODO backported patch in the noise protocl for <https://github.com/libp2p/rust-libp2p/pull/2264>, blocked on libp2p upgrade <https://github.com/anoma/anoma/pull/751>
 libp2p = {git = "https://github.com/heliaxdev/rust-libp2p.git", rev = "1abe349c231eb307d3dbe03f3ffffc6cf5e9084d"}

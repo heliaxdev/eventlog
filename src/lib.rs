@@ -584,10 +584,10 @@ const fn calc_num_of_kept_ents(diff: u64) -> u64 {
 
 #[cfg(test)]
 mod tests {
+    use namada_apps::node::ledger::events::{EventLevel, EventType};
     use tokio::time::{self, Duration};
 
     use super::*;
-    use crate::node::ledger::events::{EventLevel, EventType};
 
     /// Return a vector of mock `FinalizeBlock` events.
     fn mock_tx_events(hash: &str) -> Vec<Event> {
