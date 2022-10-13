@@ -7,9 +7,8 @@
 //! ```
 
 use lazy_static::lazy_static;
+use namada_apps::node::ledger::events::{Event, EventType};
 use regex::Regex;
-
-use crate::node::ledger::events::{Event, EventType};
 
 /// Regular expression used to parse Tendermint queries.
 const QUERY_PARSING_REGEX_STR: &str =

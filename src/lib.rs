@@ -10,10 +10,9 @@ use std::ops::ControlFlow;
 use std::sync::{Arc, RwLock};
 
 use namada::types::storage::BlockHeight;
+use namada_apps::node::ledger::events::Event;
 use tokio::sync::mpsc::{self, UnboundedReceiver, UnboundedSender};
 use tokio::time::Instant;
-
-use crate::node::ledger::events::Event;
 
 /// Run a CPU-bound task without blocking the Tokio runtime.
 macro_rules! block_in_place {
