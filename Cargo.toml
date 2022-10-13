@@ -4,3 +4,48 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+regex = "1.4.5"
+lazy_static = "1.4.0"
+event-listener = "2.5.3"
+tracing = "0.1.30"
+
+[dependencies.tokio]
+version = "1.8.2"
+features = ["macros", "rt-multi-thread", "sync", "time"]
+
+[dependencies.namada]
+git = "https://github.com/anoma/namada"
+rev = "9fbdca59549bac6e71b43002b97d652a89635ea8"
+features = ["secp256k1-sign-verify"]
+
+[dependencies.namada_apps]
+git = "https://github.com/anoma/namada"
+rev = "9fbdca59549bac6e71b43002b97d652a89635ea8"
+
+[patch.crates-io]
+# TODO backported patch in the noise protocl for <https://github.com/libp2p/rust-libp2p/pull/2264>, blocked on libp2p upgrade <https://github.com/anoma/anoma/pull/751>
+libp2p = {git = "https://github.com/heliaxdev/rust-libp2p.git", rev = "1abe349c231eb307d3dbe03f3ffffc6cf5e9084d"}
+# TODO temp patch for <https://github.com/near/borsh-rs/issues/82>, <https://github.com/near/borsh-rs/issues/84> and more tba.
+borsh = {git = "https://github.com/heliaxdev/borsh-rs.git", rev = "cd5223e5103c4f139e0c54cf8259b7ec5ec4073a"}
+borsh-derive = {git = "https://github.com/heliaxdev/borsh-rs.git", rev = "cd5223e5103c4f139e0c54cf8259b7ec5ec4073a"}
+borsh-derive-internal = {git = "https://github.com/heliaxdev/borsh-rs.git", rev = "cd5223e5103c4f139e0c54cf8259b7ec5ec4073a"}
+borsh-schema-derive-internal = {git = "https://github.com/heliaxdev/borsh-rs.git", rev = "cd5223e5103c4f139e0c54cf8259b7ec5ec4073a"}
+# borsh = {path = "../borsh-rs/borsh"}
+# borsh-derive = {path = "../borsh-rs/borsh-derive"}
+# borsh-derive-internal = {path = "../borsh-rs/borsh-derive-internal"}
+# borsh-schema-derive-internal = {path = "../borsh-rs/borsh-schema-derive-internal"}
+
+# patched to a commit on the `eth-bridge-integration` branch of our fork
+tendermint = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+tendermint-config = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+tendermint-proto = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+tendermint-rpc = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+tendermint-testgen = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+tendermint-light-client-verifier = {git = "https://github.com/heliaxdev/tendermint-rs.git", rev = "8c8935e9b3d901b5f9229e34e5b7f90248397b5d"}
+
+# patched to a commit on the `eth-bridge-integration` branch of our fork
+ibc = {git = "https://github.com/heliaxdev/ibc-rs.git", rev = "5b4dce005958364baa21872d02b5e8feed1a3cf5"}
+ibc-proto = {git = "https://github.com/heliaxdev/ibc-rs.git", rev = "5b4dce005958364baa21872d02b5e8feed1a3cf5"}
+
+# patched to a commit on the `eth-bridge-integration` branch of our fork
+tower-abci = {git = "https://github.com/heliaxdev/tower-abci.git", rev = "fcc0014d0bda707109901abfa1b2f782d242f082"}
